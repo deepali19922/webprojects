@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(#9bdfff, #009be4);
+    /* overflow-y: hidden; */
+}
+
+.road
+{
+    position: relative;
+    width: 5000px;
+    height: 200px;
+    background: #525252;
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotatex(30deg);
+    box-shadow: 18px 2px 23px;
+    left: -9px;
+    bottom: -211px;
+
+    
+   
+}
+.road::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(90deg,#fff 70%, #525252 70%);
+    background-size: 120px;
+    top: 50%;
+    left: 0;
+    transform: translatey(-50%);
+    animation:  move 2s linear infinite;
+    
+
+}
+/* @keyframes move{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -120px;
+    }
+} */
+
+.traffic{
+    height: 800px;
+    width: 80px;
+    background: #2b2727;
+    margin: 10px;
+    border-radius: 93px;
+}
+
+.light{
+    width: 250px;
+    height: 185px;
+    position: relative;
+    background: black;
+    top: -308px;
+    left: -52px;
+    border-radius: 93px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.image_div{
+    width: 300px;
+    transform: rotateX(313deg) translateY(-53px) ;
+    perspective: 100px;
+    position: relative;
+    left:35px;
+    top: 57px;
+    animation-name: car_move;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+@keyframes car_move{
+    0%{
+        left: 35px;
+    }
+    25%{
+        left:550px;
+    }
+    55%{
+        left:600px;
+    }
+    55.5%{
+        left:600px;
+    }
+    75%{
+        left:550px;
+    }
+    100%{
+        left:1100px;
+    }
+}
+.image_div img{
+    width: 100%;
+}
+.image_div::after{
+    content: " ";
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: 28px;
+    bottom: 12PX;
+    /* clip-path: circle(50% at 50% 50%); */
+    border: 5px solid ;
+    background-image: conic-gradient(rgb(0, 0, 0),rgb(249, 249, 249) );
+    z-index: 5555;
+    animation-name: t_move;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+.image_div::before{
+    content: " ";
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 39px;
+    bottom: 12PX;
+    /* clip-path: circle(50% at 50% 50%); */
+    border: 5px solid ;
+    background-image: conic-gradient(rgb(0, 0, 0),rgb(249, 249, 249) );
+    animation-name: t_move;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    z-index: 5555;
+}
+@keyframes t_move {
+   0%{
+    transform: rotate(0deg);
+   }
+   25%{
+    transform: rotate(1800deg);
+   }
+    55%{
+        transform: rotate(2160deg);
+    }
+    55.5%{
+        transform: rotate(2520deg);
+    }
+   75%{
+        transform: rotate(2880deg);
+   }
+   100%{
+    transform: rotate(3600deg);
+   }
+}
+
+.red{
+   
+    border: 2px solid red;
+    border-radius: 50%;
+    /* padding-top: 40px; */
+    /* margin-top: 33px; */
+    height: 50px;
+    width: 50px;
+    animation-name: red_light;
+    animation-duration: 2.17s;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+.green{
+    
+    border: 2px solid green;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    animation-name: green_light;
+    animation-duration: 4s;
+    animation-delay: 6s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+.yellow{
+    
+    border: 2px solid yellow;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    animation-name: yellow_light;
+    animation-duration: 2s;
+    animation-delay: 4s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+@keyframes red_light {
+    0%{
+        background-color: transparent;
+    }
+    50%{
+        background-color: red;
+    }
+    100%{
+        background-color: transparent;
+    }
+}
+@keyframes yellow_light {
+    0%{
+        background-color: transparent;
+    }
+    50%{
+        background-color: yellow;
+    }
+    100%{
+        background-color: transparent;
+    }
+}
+@keyframes green_light {
+    0%{
+        background-color: transparent;
+    }
+    50%{
+        background-color: green;
+    }
+    100%{
+        background-color: green;
+    }
+}
